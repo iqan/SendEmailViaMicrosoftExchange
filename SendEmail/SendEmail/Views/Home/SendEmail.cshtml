@@ -5,6 +5,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
+        <br/>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             <label class="control-label col-md-2">User Name</label>
@@ -24,6 +25,7 @@
             <label class="control-label col-md-2">Password</label>
             <div class="col-md-10">
                 <input type="password" name="UserPassword" id="UserPassword" class="form-control" />
+                <span>Your password will not be stored.</span>
             </div>
         </div>
 
