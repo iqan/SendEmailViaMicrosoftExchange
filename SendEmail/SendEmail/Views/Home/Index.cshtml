@@ -4,5 +4,9 @@
 
 <h2>Send Email using Exchange Services</h2>
 <div>
+    @if (TempData["Message"] != null)
+    {
+        <hr />
+        <p>@TempData["Message"]</p>}
     @Html.Partial("SendEmail")
 </div>

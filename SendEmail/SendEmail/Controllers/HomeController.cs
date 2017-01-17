@@ -12,6 +12,7 @@ namespace SendEmail.Controllers
     {
         public ActionResult Index()
         {
+            TempData.Keep();
             return View();
         }
 
@@ -22,12 +23,12 @@ namespace SendEmail.Controllers
             {
                 var service = Service.GetService(userData, null);
 
-                ViewBag.Message = (service == null) ?
+                TempData["Message"] = (service == null) ?
                     "Connection to Exchange services failed. Check data and try again." :
                     Service.SendBatchEmails(service, userData);    
             }
-
-            return View("Index");
+            TempData.Keep();
+            return RedirectToAction("Index");
         }
     }
 }
