@@ -7,6 +7,8 @@
     @if (TempData["Message"] != null)
     {
         <hr />
-        <p>@TempData["Message"]</p>}
+        <p>@TempData["Message"]</p>
+        TempData.Clear();
+    }
     @Html.Partial("SendEmail")
 </div>
