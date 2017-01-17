@@ -5,9 +5,9 @@
 <div>
     @if (TempData["Message"] != null)
     {
+        <br/>
         <p>@TempData["Message"]</p>
         TempData.Clear();
-        <hr />
     }
     @Html.Partial("SendEmail")
 </div>

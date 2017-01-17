@@ -27,6 +27,7 @@ namespace SendEmail.Controllers
                     "Connection to Exchange services failed. Check data and try again." :
                     Service.SendBatchEmails(service, userData);    
             }
+            TempData["Message"] = "There are some incorrect data in form. Kindly check and try again.";
             TempData.Keep();
             return RedirectToAction("Index");
         }
