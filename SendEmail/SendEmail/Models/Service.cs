@@ -55,7 +55,9 @@ namespace SendEmail.Models
             EmailMessage message1 = new EmailMessage(service);
             message1.ToRecipients.Add(userData.ToName);
             message1.Subject = userData.EmailSubject;
-            message1.Body = userData.EmailBody + "\r\n\r\n";
+            
+            message1.Body = userData.EmailBody.Replace("\r\n", "<br/>") + "<br/><br/>";
+            message1.Body.BodyType = BodyType.HTML;
 
             Collection<EmailMessage> msgs = new Collection<EmailMessage>() { message1 };
 

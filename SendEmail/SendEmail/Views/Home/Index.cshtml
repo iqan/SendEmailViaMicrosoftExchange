@@ -2,13 +2,12 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Send Email using Exchange Services</h2>
 <div>
     @if (TempData["Message"] != null)
     {
-        <hr />
         <p>@TempData["Message"]</p>
         TempData.Clear();
+        <hr />
     }
     @Html.Partial("SendEmail")
 </div>
