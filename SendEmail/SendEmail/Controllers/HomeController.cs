@@ -19,6 +19,7 @@ namespace SendEmail.Controllers
         [HttpPost]
         public ActionResult SendEmail(UserData userData)
         {
+            TempData.Clear();
             if (ModelState.IsValid)
             {
                 var service = Service.GetService(userData, null);
@@ -27,7 +28,8 @@ namespace SendEmail.Controllers
                     "Connection to Exchange services failed. Check data and try again." :
                     Service.SendBatchEmails(service, userData);    
             }
-            TempData["Message"] = "There are some incorrect data in form. Kindly check and try again.";
+            else
+                TempData["Message"] = "There are some incorrect data in form. Kindly check and try again.";
             TempData.Keep();
             return RedirectToAction("Index");
         }

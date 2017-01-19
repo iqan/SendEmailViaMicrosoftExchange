@@ -16,7 +16,6 @@ namespace SendEmail.Models
             try
             {
                 service.Credentials = new NetworkCredential(userData.UserName, userData.UserPassword, userData.DomainName);
-
                 if (uri == null)
                 {
                     service.AutodiscoverUrl(userData.UserEmail, RedirectionUrlValidationCallback);
