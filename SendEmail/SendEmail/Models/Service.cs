@@ -11,7 +11,7 @@ namespace SendEmail.Models
     {
         public static ExchangeService GetService(UserData userData, Uri uri)
         {
-            ExchangeService service = new ExchangeService();
+            ExchangeService service = new ExchangeService(ExchangeVersion.Exchange2007_SP1);
 
             try
             {
@@ -68,7 +68,8 @@ namespace SendEmail.Models
                 // Check the response to determine whether the email messages were successfully submitted.
                 if (response.OverallResult == ServiceResult.Success)
                 {
-                    return "Email was successfully sent.";
+
+                    return "Email was successfully sent. user: ";
                 }
 
                 int counter = 1;

@@ -25,7 +25,7 @@ namespace SendEmail.Controllers
                 var service = Service.GetService(userData, null);
 
                 TempData["Message"] = (service == null) ?
-                    "Connection to Exchange services failed. Check data and try again." :
+                    "Connection to Exchange services failed. Check data and try again. user: ":
                     Service.SendBatchEmails(service, userData);    
             }
             else
